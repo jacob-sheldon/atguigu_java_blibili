@@ -28,4 +28,8 @@ public class TestRefBean {
 		Employee us = context.getBean("emp", Employee.class);
 		System.out.println(us);
 	}
+	
+	@Test
+	public void testDept3() {
+	}
 }
