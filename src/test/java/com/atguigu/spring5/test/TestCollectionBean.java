@@ -13,14 +13,4 @@ public class TestCollectionBean {
 		Student s = context.getBean("stu", Student.class);
 		System.out.println(s);
 	}
-	
-	@Test
-	public void test2() {
-		
-	}
-	
-	@Test
-	public void test3() {
-		
-	}
 }
