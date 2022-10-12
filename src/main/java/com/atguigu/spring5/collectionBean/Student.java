@@ -29,10 +29,16 @@ public class Student {
 	public void setSet(Set<String> set) {
 		this.set = set;
 	}
+	
+	private List<Course> courseObjList;
+
+	public void setCourseObjList(List<Course> courseObjList) {
+		this.courseObjList = courseObjList;
+	}
 
 	@Override
 	public String toString() {
 		return "Student [courses=" + Arrays.toString(courses) + ", list=" + list + ", map=" + map + ", set=" + set
-				+ "]";
+				+ ", courseObjList=" + courseObjList + "]";
 	}
 }
