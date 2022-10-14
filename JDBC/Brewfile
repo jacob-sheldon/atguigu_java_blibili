@@ -1,0 +1,5 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "elixir"
+brew "git-lfs"
+brew "openjdk"
