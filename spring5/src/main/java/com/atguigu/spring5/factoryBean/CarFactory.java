@@ -1,6 +1,5 @@
 package com.atguigu.spring5.factoryBean;
 
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.FactoryBean;
 
 public class CarFactory implements FactoryBean<Benz> {
