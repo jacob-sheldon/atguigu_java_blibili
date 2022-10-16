@@ -2,6 +2,14 @@ package bean;
 
 import java.sql.Date;
 
+/**
+ * ORM 编程思想（Object Relationship Mapping）
+ * 一个数据表对应一个 Java 类
+ * 表中的一条记录对应 java 类的一个对象
+ * 表中的一个字段对应 java 类中的一个属性
+ * @author shizhiang
+ *
+ */
 public class Order {
 	private int orderId;
 	private String orderName;

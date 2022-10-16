@@ -27,14 +27,15 @@ public class JDBCUtil {
 	 */
 	public static Connection getConnection() throws Exception {
 		// 读取配置文件中的信息
-		InputStream resourceAsStream = ClassLoader.getSystemClassLoader().getResourceAsStream("jdbc.properties");
-		Properties properties = new Properties();
-		properties.load(resourceAsStream);
-		String user = properties.getProperty("user");
-		String url = properties.getProperty("url");
-		String driverClass = properties.getProperty("driverClass");
+		InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("jdbc.properties");
+		Properties prop = new Properties();
+		prop.load(is);
+		String user = prop.getProperty("user");
+		String url = prop.getProperty("url");
+		String driverClass = prop.getProperty("driverClass");
 
 		// 加载驱动
+		// Driver 类中的static 代码块会在类加载时自动加载Driver
 		Class.forName(driverClass);
 
 		Connection connection = DriverManager.getConnection(url, user, "");

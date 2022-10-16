@@ -85,7 +85,7 @@ public class UserForQuery {
 				String name = res.getString(2);
 				String email = res.getString(3);
 				Date birth = res.getDate(4);
-				User user = new User(name, email, birth);
+				User user = new User(id, name, email, birth);
 				System.out.println(user);
 			}
 		} catch (Exception e) {
