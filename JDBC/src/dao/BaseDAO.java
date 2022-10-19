@@ -1,6 +1,8 @@
 package dao;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +20,17 @@ import util.JDBCUtil;
  * @author huajiao1
  *
  */
-public abstract class BaseDAO {
+public abstract class BaseDAO<T> {
+	
+	private Class<T> clazz = null;
+	
+	{
+		Type genericSuperclass = this.getClass().getGenericSuperclass();
+		ParameterizedType paramTyep = (ParameterizedType) genericSuperclass;
+		Type[] actualTypeArguments = paramTyep.getActualTypeArguments();
+		clazz = (Class<T>) actualTypeArguments[0];
+	}
+	
 	public int update(Connection conn, String sql, Object... args) {
 		PreparedStatement ps = null;
 		try {
@@ -35,7 +47,7 @@ public abstract class BaseDAO {
 		return 0;
 	}
 	
-	public <T> T query(Connection conn, Class<T> clazz, String sql, Object... args) {
+	public T query(Connection conn, String sql, Object... args) {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
@@ -48,7 +60,7 @@ public abstract class BaseDAO {
 			ResultSetMetaData rsmd = rs.getMetaData();
 			int columnCount = rsmd.getColumnCount();
 			if (rs.next()) {
-				T t = null;
+				T t = clazz.newInstance();
 				for (int i = 0; i < columnCount; i++) {
 					String columnLabel = rsmd.getColumnLabel(i + 1);
 					Object columnValue = rs.getObject(i + 1);
@@ -66,7 +78,7 @@ public abstract class BaseDAO {
 		return null;
 	}
 	
-	public <T> List<T> queryForList(Connection conn, Class<T> clazz, String sql, Object... args) {
+	public List<T> queryForList(Connection conn, String sql, Object... args) {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
@@ -80,7 +92,7 @@ public abstract class BaseDAO {
 			int columnCount = rsmd.getColumnCount();
 			ArrayList<T> list = new ArrayList<>();
 			while (rs.next()) {
-				T t = null;
+				T t = clazz.newInstance();
 				for (int i = 0; i < columnCount; i++) {
 					String columnLabel = rsmd.getColumnLabel(i + 1);
 					Object columnValue = rs.getObject(i + 1);
