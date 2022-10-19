@@ -13,12 +13,13 @@ import java.util.List;
 import util.JDBCUtil;
 
 /**
- * 支持事务的数据库增删改查
+ * DAO：data(base) access object
+ * 封装了针对与数据表的通用操作，支持事务
  * @author huajiao1
  *
  */
 public abstract class BaseDAO {
-	public int update(Connection conn, String sql, Object... args) throws Exception {
+	public int update(Connection conn, String sql, Object... args) {
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(sql);
