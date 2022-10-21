@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import connection.ConnectionTest;
-
 /**
  * 
  * @Description 操作数据库的工具类

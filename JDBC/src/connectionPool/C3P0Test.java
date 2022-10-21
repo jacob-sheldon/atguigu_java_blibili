@@ -1,6 +1,5 @@
 package connectionPool;
 
-import java.beans.PropertyVetoException;
 import java.sql.Connection;
 
 import org.junit.Test;
@@ -8,6 +7,7 @@ import org.junit.Test;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class C3P0Test {
+	// 方式一：硬编码
 	@Test
 	public void testGetConnection() throws Exception {
 		ComboPooledDataSource cpds = new ComboPooledDataSource();
@@ -19,5 +19,12 @@ public class C3P0Test {
 		
 		Connection conn1 = cpds.getConnection();
 		System.out.println(conn1);
+	}
+	// 方式二：使用配置文件
+	@Test
+	public void testGetConnectionWithProperties() throws Exception {
+		ComboPooledDataSource cpds = new ComboPooledDataSource("helloc3p0");
+		Connection conn = cpds.getConnection();
+		System.out.println(conn);
 	}
 }

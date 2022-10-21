@@ -18,7 +18,7 @@ class UserDaoImplTest {
 	void testInsert() {
 		Connection conn = null;
 		try {
-			conn = JDBCUtil.getConnection();
+			conn = utils_v2.JDBCUtil.getConnection();
 			User u = new User(0, "BB", "bb@qq.com", new Date(234232234L));
 			ud.insert(conn, u);
 			System.out.println("添加成功");
@@ -62,8 +62,8 @@ class UserDaoImplTest {
 	void testGetUserById() {
 		Connection conn = null;
 		try {
-			conn = JDBCUtil.getConnection();
-			User u = ud.getUserById(conn, 5);
+			conn = utils_v2.JDBCUtil.getConnection();
+			User u = ud.getUserById(conn, 1);
 			System.out.println(u);
 		} catch (Exception e) {
 			e.printStackTrace();
