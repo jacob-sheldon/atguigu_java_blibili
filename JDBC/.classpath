@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.30.jar" sourcepath="/Users/huajiao1/Downloads/mysql-connector-java-8.0.30"/>
 	<classpathentry kind="lib" path="lib/c3p0-0.9.1.2-jdk1.3.jar" sourcepath="/Users/huajiao1/Documents/workspace-spring-tool-suite/atguigu_java_blibili/JDBC/lib/c3p0-0.9.1.2-jdk1.3.jar"/>
 	<classpathentry kind="lib" path="lib/druid-1.2.13-SNSAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbutils-1.7.jar" sourcepath="/Users/shizhiang/Downloads/commons-dbutils-1.7/commons-dbutils-1.7-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

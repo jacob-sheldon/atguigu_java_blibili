@@ -1,8 +1,8 @@
 package utils_v2;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -27,5 +27,15 @@ public class JDBCUtil {
 		DruidDataSource source = (DruidDataSource) DruidDataSourceFactory.createDataSource(pros);
 		DruidPooledConnection conn = source.getConnection();
 		return conn;
+	}
+	
+	public static void closeResource(Connection conn) {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
