@@ -4,7 +4,7 @@
 
 ## 目前进度
 
-- [ ] Java语法
+- [x] Java语法
 - [ ] MySQL
 - [x] JDBC
 - [ ] Spring5
