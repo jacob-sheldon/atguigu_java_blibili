@@ -1,0 +1,3 @@
+[submodule "guliMall"]
+	path = guliMall
+	url = git@github.com:jacob-sheldon/atguigu_guliMall.git
